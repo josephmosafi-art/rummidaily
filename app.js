@@ -587,11 +587,6 @@ document.getElementById("hintBtn").addEventListener("click", showNextHint);
 document.getElementById("resetBtn").addEventListener("click", resetGame);
 document.getElementById("shareBtn").addEventListener("click", shareResult);
 
-document.getElementById("addGroupBtn").addEventListener("click", () => {
-  state.groups.push([]);
-  render();
-});
-
 document.getElementById("undoBtn").addEventListener("click", undoLastMove);
 
 async function loadDailyPuzzle() {
