@@ -1,4 +1,4 @@
-const initialPuzzle = window.RUMMI_PUZZLES[0];
+let initialPuzzle = null;
 let state;
 let moves = 0;
 let dragState = null;
@@ -563,12 +563,50 @@ document.getElementById("addGroupBtn").addEventListener("click", () => {
 
 document.getElementById("tidyBtn").addEventListener("click", tidyTable);
 
-resetGame();
+async function loadDailyPuzzle() {
+  try {
+    // Get today's date in UK time (automatically handles GMT/BST)
+    const parts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Europe/London",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).formatToParts(new Date());
 
-const buildCheck = RummiEngine.validatePuzzleDefinition(initialPuzzle);
-const metrics = RummiEngine.structuralMetrics(initialPuzzle);
-console.info("RummiDaily puzzle proof:", {
-  check: buildCheck,
-  proof: initialPuzzle.proof,
-  metrics
-});
+    const year = parts.find(p => p.type === "year").value;
+    const month = parts.find(p => p.type === "month").value;
+    const day = parts.find(p => p.type === "day").value;
+
+    const dateString = `${year}-${month}-${day}`;
+
+    const response = await fetch(`puzzles/${dateString}.json`, {
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      throw new Error(`No puzzle found for ${dateString}`);
+    }
+
+    initialPuzzle = await response.json();
+
+    resetGame();
+
+    const buildCheck =
+      RummiEngine.validatePuzzleDefinition(initialPuzzle);
+
+    const metrics =
+      RummiEngine.structuralMetrics(initialPuzzle);
+
+    console.info("RummiDaily daily puzzle:", {
+      date: dateString,
+      check: buildCheck,
+      proof: initialPuzzle.proof,
+      metrics
+    });
+
+  } catch (error) {
+    console.error("Failed to load today's RummiDaily puzzle:", error);
+  }
+}
+
+loadDailyPuzzle();
