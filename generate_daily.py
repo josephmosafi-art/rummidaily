@@ -6,7 +6,7 @@ from itertools import combinations
 from collections import defaultdict
 import json,random,os,sys
 
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=Path(__file__).resolve().parent
 PUZZLES=ROOT/"puzzles"
 LONDON=ZoneInfo("Europe/London")
 COLORS=("red","blue","black","yellow")
