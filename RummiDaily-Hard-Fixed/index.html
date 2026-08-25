@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>RummiDaily</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">DAILY ENDGAME</div>
+        <h1>RummiDaily</h1>
+      </div>
+
+      <div class="top-actions">
+        <span id="timer" class="timer">00:00</span>
+        <span id="verifiedBadge" class="verified">✓ verified</span>
+        <span id="difficultyBadge" class="difficulty"></span>
+        <span id="puzzleNumber" class="puzzle-number"></span>
+        <button id="resetBtn" class="icon-btn" title="Reset puzzle" aria-label="Reset puzzle">↻</button>
+      </div>
+    </header>
+
+    <section class="game-card">
+      <div class="status-strip">
+        <div><strong>Go out in one turn.</strong> Rearrange anything on the table.</div>
+        <div id="rackCount" class="muted"></div>
+      </div>
+
+      <div class="split-help">
+        <span class="split-demo">✂</span>
+        Drag on desktop, or tap a tile then tap a gap on iPhone. Tap ✂ to split.
+      </div>
+
+      <div id="table" class="felt-table" aria-label="Rummikub table">
+        <div class="table-brand">RUMMIDAILY</div>
+        <div id="groupsLayer" class="groups-layer"></div>
+        <button id="addGroupBtn" class="floating-add">+ Empty meld</button>
+      </div>
+
+      <div class="rack-label">YOUR RACK <span class="tap-help">• tap a tile to select it</span></div>
+      <div class="rack-wrap">
+        <div class="rack-lip"></div>
+        <div id="rack" class="rack dropzone" data-zone-type="rack" aria-label="Your rack"></div>
+      </div>
+
+      <div class="controls">
+        <button id="checkBtn" class="primary">Check solution</button>
+        <button id="hintBtn" class="secondary hint-btn">Hint <span id="hintCount">0/3</span></button>
+        <button id="tidyBtn" class="secondary">Tidy table</button>
+      </div>
+
+      <div id="message" class="message" aria-live="polite"></div>
+
+      <div id="hintPanel" class="hint-panel hidden" aria-live="polite">
+        <div class="hint-title">Visual hint</div>
+        <div id="hintText">Look for the highlighted area on the table.</div>
+      </div>
+    </section>
+
+    <section id="resultCard" class="result-card hidden">
+      <div class="result-icon">✓</div>
+      <h2>Solved</h2>
+      <p id="resultSummary"></p>
+      <button id="shareBtn" class="primary">Share result</button>
+      <pre id="sharePreview"></pre>
+    </section>
+  </main>
+
+  <script src="puzzles.js"></script>
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
