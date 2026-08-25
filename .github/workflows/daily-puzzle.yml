@@ -22,7 +22,7 @@ jobs:
           python-version: "3.12"
 
       - name: Generate and independently verify tomorrow's puzzle
-        run: python generator/generate_daily.py
+        run: python generate_daily.py
 
       - name: Commit generated puzzle
         run: |
