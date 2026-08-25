@@ -50,8 +50,16 @@ function clonePuzzle() {
   return JSON.parse(JSON.stringify(initialPuzzle));
 }
 
+let undoStack = [];
+
 function resetGame() {
   state = clonePuzzle();
+
+undoStack = [];
+
+const undoBtn = document.getElementById("undoBtn");
+if (undoBtn) undoBtn.disabled = true;
+  
   moves = 0;
   dragState = null;
   hintsUsed = 0;
@@ -229,6 +237,8 @@ function splitGroup(groupIndex, splitIndex) {
 
   if (splitIndex <= 0 || splitIndex >= group.length) return;
 
+saveUndoState();
+  
   const left = group.slice(0, splitIndex);
   const right = group.slice(splitIndex);
 
@@ -399,6 +409,8 @@ function moveDraggedTile(destination) {
   const source = findTileLocation(dragState.tileId);
   if (!source) return;
 
+  saveUndoState();
+  
   let insertIndex = destination.insertIndex;
   const tile = source.type === "rack"
     ? state.rack[source.tileIndex]
@@ -503,8 +515,27 @@ async function shareResult() {
   } catch (error) {}
 }
 
-function tidyTable() {
-  state.groups = state.groups.filter(group => group.length > 0);
+
+function saveUndoState() {
+  undoStack.push(JSON.stringify(state));
+
+  if (undoStack.length > 50) {
+    undoStack.shift();
+  }
+
+  const undoBtn = document.getElementById("undoBtn");
+  if (undoBtn) undoBtn.disabled = false;
+}
+
+function undoLastMove() {
+  if (undoStack.length === 0) return;
+
+  state = JSON.parse(undoStack.pop());
+
+  const undoBtn = document.getElementById("undoBtn");
+  if (undoBtn) undoBtn.disabled = undoStack.length === 0;
+
+  clearMessage();
   render();
 }
 
@@ -561,7 +592,7 @@ document.getElementById("addGroupBtn").addEventListener("click", () => {
   render();
 });
 
-document.getElementById("tidyBtn").addEventListener("click", tidyTable);
+document.getElementById("undoBtn").addEventListener("click", undoLastMove);
 
 async function loadDailyPuzzle() {
   try {
