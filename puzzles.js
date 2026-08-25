@@ -1,0 +1,311 @@
+window.RUMMI_PUZZLES = [
+{
+  "number": 9,
+  "difficulty": "Hard",
+  "targetMinutes": "5\u20137",
+  "groups": [
+    [
+      {
+        "id": "r2",
+        "color": "red",
+        "value": 2
+      },
+      {
+        "id": "r3",
+        "color": "red",
+        "value": 3
+      },
+      {
+        "id": "r4",
+        "color": "red",
+        "value": 4
+      },
+      {
+        "id": "r5",
+        "color": "red",
+        "value": 5
+      },
+      {
+        "id": "r6",
+        "color": "red",
+        "value": 6
+      }
+    ],
+    [
+      {
+        "id": "b3",
+        "color": "blue",
+        "value": 3
+      },
+      {
+        "id": "b4",
+        "color": "blue",
+        "value": 4
+      },
+      {
+        "id": "b5",
+        "color": "blue",
+        "value": 5
+      },
+      {
+        "id": "b6",
+        "color": "blue",
+        "value": 6
+      },
+      {
+        "id": "b7",
+        "color": "blue",
+        "value": 7
+      }
+    ],
+    [
+      {
+        "id": "k5",
+        "color": "black",
+        "value": 5
+      },
+      {
+        "id": "k6",
+        "color": "black",
+        "value": 6
+      },
+      {
+        "id": "k7",
+        "color": "black",
+        "value": 7
+      },
+      {
+        "id": "k8",
+        "color": "black",
+        "value": 8
+      },
+      {
+        "id": "k9",
+        "color": "black",
+        "value": 9
+      },
+      {
+        "id": "k10",
+        "color": "black",
+        "value": 10
+      }
+    ],
+    [
+      {
+        "id": "y7",
+        "color": "yellow",
+        "value": 7
+      },
+      {
+        "id": "y8",
+        "color": "yellow",
+        "value": 8
+      },
+      {
+        "id": "y9",
+        "color": "yellow",
+        "value": 9
+      },
+      {
+        "id": "y10",
+        "color": "yellow",
+        "value": 10
+      },
+      {
+        "id": "y11",
+        "color": "yellow",
+        "value": 11
+      }
+    ],
+    [
+      {
+        "id": "b2",
+        "color": "blue",
+        "value": 2
+      },
+      {
+        "id": "k2",
+        "color": "black",
+        "value": 2
+      },
+      {
+        "id": "y2",
+        "color": "yellow",
+        "value": 2
+      }
+    ],
+    [
+      {
+        "id": "r7",
+        "color": "red",
+        "value": 7
+      },
+      {
+        "id": "k7b",
+        "color": "black",
+        "value": 7
+      },
+      {
+        "id": "y7b",
+        "color": "yellow",
+        "value": 7
+      }
+    ],
+    [
+      {
+        "id": "r11",
+        "color": "red",
+        "value": 11
+      },
+      {
+        "id": "b11",
+        "color": "blue",
+        "value": 11
+      },
+      {
+        "id": "k11",
+        "color": "black",
+        "value": 11
+      }
+    ],
+    [
+      {
+        "id": "r12",
+        "color": "red",
+        "value": 12
+      },
+      {
+        "id": "b12",
+        "color": "blue",
+        "value": 12
+      },
+      {
+        "id": "j1",
+        "joker": true
+      }
+    ]
+  ],
+  "rack": [
+    {
+      "id": "y12",
+      "color": "yellow",
+      "value": 12
+    },
+    {
+      "id": "b10",
+      "color": "blue",
+      "value": 10
+    },
+    {
+      "id": "r10",
+      "color": "red",
+      "value": 10
+    }
+  ],
+  "solution": [
+    [
+      "b12",
+      "r12",
+      "y12"
+    ],
+    [
+      "b2",
+      "k2",
+      "y2"
+    ],
+    [
+      "b11",
+      "k11",
+      "r11"
+    ],
+    [
+      "b10",
+      "r10",
+      "y10"
+    ],
+    [
+      "j1",
+      "y11",
+      "y7",
+      "y8",
+      "y9"
+    ],
+    [
+      "b3",
+      "b4",
+      "b5",
+      "b6"
+    ],
+    [
+      "r2",
+      "r3",
+      "r4"
+    ],
+    [
+      "r5",
+      "r6",
+      "r7"
+    ],
+    [
+      "b7",
+      "k7b",
+      "y7b"
+    ],
+    [
+      "k5",
+      "k6",
+      "k7"
+    ],
+    [
+      "k10",
+      "k8",
+      "k9"
+    ]
+  ],
+  "visualHints": [
+    {
+      "type": "split",
+      "afterTileId": "r3",
+      "label": "Try splitting this meld here"
+    },
+    {
+      "type": "highlight",
+      "tileIds": [
+        "b12",
+        "r12",
+        "y12",
+        "b10",
+        "r10",
+        "y10"
+      ],
+      "label": "These tiles matter to the key restructuring"
+    },
+    {
+      "type": "groups",
+      "groups": [
+        [
+          "b12",
+          "r12",
+          "y12"
+        ],
+        [
+          "b10",
+          "r10",
+          "y10"
+        ]
+      ],
+      "label": "Try rebuilding the highlighted tiles into these melds"
+    }
+  ],
+  "proof": {
+    "buildVerified": true,
+    "independentSolverFoundSolution": true,
+    "rackOnlyShortcut": false,
+    "allStartMeldsLegal": true,
+    "hiddenSolutionLegal": true,
+    "exactTileMatch": true,
+    "disruptedStartingMelds": 6,
+    "tileCount": 36
+  }
+}
+];
