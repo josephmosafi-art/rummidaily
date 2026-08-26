@@ -61,8 +61,6 @@ def cands(tiles):
             for c in combinations(pool,r):
                 if vr(c):out.add(tuple(sorted(t["id"] for t in c)))
     return list(out)
-
-
    def solve_all(tiles, limit=80):
     ids = [t["id"] for t in tiles]
     idx = {x: i for i, x in enumerate(ids)}
