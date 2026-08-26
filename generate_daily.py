@@ -51,15 +51,27 @@ def vr(g):
 def legal(g):return vs(g) or vr(g)
 
 def cands(tiles):
-    out=set()
-    for r in (3,4):
-        for c in combinations(tiles,r):
-            if vs(c):out.add(tuple(sorted(t["id"] for t in c)))
+    out = set()
+
+    for r in (3, 4):
+        for c in combinations(tiles, r):
+            if vs(c):
+                out.add(tuple(sorted(t["id"] for t in c)))
+
     for color in COLORS:
-        pool=[t for t in tiles if not t.get("joker") and t["color"]==color]+[t for t in tiles if t.get("joker")]
-        for r in range(3,min(len(pool),7)+1):
-            for c in combinations(pool,r):
-                if vr(c):out.add(tuple(sorted(t["id"] for t in c)))
+        pool = [
+            t for t in tiles
+            if not t.get("joker") and t["color"] == color
+        ] + [
+            t for t in tiles
+            if t.get("joker")
+        ]
+
+        for r in range(3, min(len(pool), 7) + 1):
+            for c in combinations(pool, r):
+                if vr(c):
+                    out.add(tuple(sorted(t["id"] for t in c)))
+
     return list(out)
 def solve_all(tiles, limit=80):
     ids = [t["id"] for t in tiles]
