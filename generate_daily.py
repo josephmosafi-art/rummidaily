@@ -11,6 +11,28 @@ PUZZLES=ROOT/"puzzles"
 LONDON=ZoneInfo("Europe/London")
 COLORS=("red","blue","black","yellow")
 PREFIX={"red":"r","blue":"b","black":"k","yellow":"y"}
+DIFFICULTY_TARGETS = {
+    "Easy": {
+        "min_moves": 4,
+        "max_moves": 7,
+        "min_coverage": 0.30,
+    },
+    "Medium": {
+        "min_moves": 8,
+        "max_moves": 11,
+        "min_coverage": 0.45,
+    },
+    "Hard": {
+        "min_moves": 12,
+        "max_moves": 19,
+        "min_coverage": 0.60,
+    },
+    "Expert": {
+        "min_moves": 20,
+        "max_moves": 999,
+        "min_coverage": 0.70,
+    },
+}
 
 def vs(g):
     if not 3<=len(g)<=4:return False
@@ -40,33 +62,119 @@ def cands(tiles):
                 if vr(c):out.add(tuple(sorted(t["id"] for t in c)))
     return list(out)
 
-def solve(tiles):
-    ids=[t["id"] for t in tiles]; idx={x:i for i,x in enumerate(ids)}
-    cs=cands(tiles); masks=[]
-    for c in cs:
-        m=0
-        for x in c:m|=1<<idx[x]
-        masks.append(m)
-    by=[[] for _ in ids]
-    for ci,m in enumerate(masks):
-        for i in range(len(ids)):
-            if m>>i&1:by[i].append(ci)
-    full=(1<<len(ids))-1; dead=set()
-    def dfs(u,ch):
-        if u==full:return [list(cs[i]) for i in ch]
-        if u in dead:return None
-        best=None
-        for i in range(len(ids)):
-            if u>>i&1:continue
-            o=[ci for ci in by[i] if not(masks[ci]&u)]
-            if not o:dead.add(u);return None
-            if best is None or len(o)<len(best):best=o
-        for ci in sorted(best,key=lambda q:len(cs[q])):
-            r=dfs(u|masks[ci],ch+[ci])
-            if r is not None:return r
-        dead.add(u);return None
-    return dfs(0,[])
 
+   def solve_all(tiles, limit=80):
+    ids = [t["id"] for t in tiles]
+    idx = {x: i for i, x in enumerate(ids)}
+
+    cs = cands(tiles)
+    masks = []
+
+    for c in cs:
+        m = 0
+        for x in c:
+            m |= 1 << idx[x]
+        masks.append(m)
+
+    by = [[] for _ in ids]
+
+    for ci, m in enumerate(masks):
+        for i in range(len(ids)):
+            if m >> i & 1:
+                by[i].append(ci)
+
+    full = (1 << len(ids)) - 1
+    results = []
+
+    def dfs(u, chosen):
+        if len(results) >= limit:
+            return
+
+        if u == full:
+            results.append([list(cs[i]) for i in chosen])
+            return
+
+        best = None
+
+        for i in range(len(ids)):
+            if u >> i & 1:
+                continue
+
+            options = [
+                ci for ci in by[i]
+                if not (masks[ci] & u)
+            ]
+
+            if not options:
+                return
+
+            if best is None or len(options) < len(best):
+                best = options
+
+        for ci in sorted(best, key=lambda q: len(cs[q])):
+            dfs(
+                u | masks[ci],
+                chosen + [ci]
+            )
+
+            if len(results) >= limit:
+                return
+
+    dfs(0, [])
+
+    return results
+       
+def solve(tiles):
+    results = solve_all(tiles, limit=1)
+    return results[0] if results else None
+   def solution_move_count(start_groups, start_rack, solution):
+    start_partners = {}
+
+    for group in start_groups:
+        ids = frozenset(tile["id"] for tile in group)
+
+        for tile in group:
+            start_partners[tile["id"]] = ids
+
+    solution_partners = {}
+
+    for group in solution:
+        ids = frozenset(group)
+
+        for tile_id in group:
+            solution_partners[tile_id] = ids
+
+    moved = len(start_rack)
+
+    for tile_id, original_partners in start_partners.items():
+        if solution_partners.get(tile_id) != original_partners:
+            moved += 1
+
+    return moved
+           return moved
+
+
+def groups_touched_count(start_groups, solution):
+    solution_partners = {}
+
+    for group in solution:
+        ids = frozenset(group)
+
+        for tile_id in group:
+            solution_partners[tile_id] = ids
+
+    touched = 0
+
+    for group in start_groups:
+        original_ids = frozenset(tile["id"] for tile in group)
+
+        if any(
+            solution_partners.get(tile["id"]) != original_ids
+            for tile in group
+        ):
+            touched += 1
+
+    return touched
 def tomorrow():
     if os.environ.get("RUMMIDAILY_DATE"):return os.environ["RUMMIDAILY_DATE"]
     return (datetime.now(LONDON).date()+timedelta(days=1)).isoformat()
@@ -127,14 +235,39 @@ def generate():
         m=meta(groups,rack)
         if m["distinctValues"]<7 or m["startingSets"]<2 or m["startingRuns"]<2:continue
         if direct(groups,rack)>=2:continue
-        found=solve([t for g in groups for t in g]+rack)
-        if not found:continue
+       solutions = solve_all([t for g in groups for t in g] + rack)
+
+if not solutions:
+    continue
+
+best_solution = min(
+    solutions,
+    key=lambda solution: solution_move_count(groups, rack, solution)
+)
+
+move_count = solution_move_count(groups, rack, best_solution)
+groups_touched = groups_touched_count(groups, best_solution)
+board_coverage = groups_touched / len(groups)
+
+if board_coverage < 0.60:
+    continue
+if move_count < 12:
+    continue
+
         chosen={"number":10+(datetime.fromisoformat(date).date()-datetime(2026,8,25).date()).days,
-          "difficulty":"Hard","targetMinutes":"~5 (provisional)","groups":groups,"rack":rack,
-          "solution":stored,"visualHints":hints,
+          "difficulty": (
+    "Expert" if move_count >= 20 else
+    "Hard" if move_count >= 12 else
+    "Medium" if move_count >= 8 else
+    "Easy"
+),"targetMinutes":"~5 (provisional)","groups":groups,"rack":rack,
+          "solution":best_solution,"visualHints":hints,
           "proof":{"buildVerified":True,"independentSolverFoundSolution":True,"rackOnlyShortcut":False,
             "allStartMeldsLegal":True,"hiddenSolutionLegal":True,"exactTileMatch":True,
             "directRackInsertions":direct(groups,rack)},
+                "structuralMoves":move_count,
+                "groupsTouched":groups_touched,
+"boardCoverage":board_coverage,
           "metadata":{**m,**tr,"generatorVersion":1,"seed":os.environ.get("RUMMIDAILY_SEED",date)}}
         break
       if chosen:break
