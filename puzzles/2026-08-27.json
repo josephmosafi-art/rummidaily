@@ -1,82 +1,18 @@
 {
   "number": 12,
-  "difficulty": "Hard",
+  "difficulty": "Expert",
   "targetMinutes": "~5 (provisional)",
   "groups": [
     [
       {
-        "id": "r11a",
-        "color": "red",
-        "value": 11
-      },
-      {
-        "id": "r10a",
-        "color": "red",
-        "value": 10
-      },
-      {
-        "id": "r9a",
-        "color": "red",
-        "value": 9
-      },
-      {
-        "id": "r8a",
-        "color": "red",
-        "value": 8
-      },
-      {
-        "id": "r7a",
-        "color": "red",
-        "value": 7
-      }
-    ],
-    [
-      {
-        "id": "y10a",
-        "color": "yellow",
-        "value": 10
-      },
-      {
-        "id": "y9a",
-        "color": "yellow",
-        "value": 9
-      },
-      {
-        "id": "y8a",
-        "color": "yellow",
-        "value": 8
-      },
-      {
-        "id": "y7a",
-        "color": "yellow",
-        "value": 7
-      },
-      {
-        "id": "y6a",
-        "color": "yellow",
-        "value": 6
-      }
-    ],
-    [
-      {
-        "id": "k8a",
+        "id": "k2a",
         "color": "black",
-        "value": 8
+        "value": 2
       },
       {
-        "id": "k7a",
+        "id": "k3a",
         "color": "black",
-        "value": 7
-      },
-      {
-        "id": "k6a",
-        "color": "black",
-        "value": 6
-      },
-      {
-        "id": "k5a",
-        "color": "black",
-        "value": 5
+        "value": 3
       },
       {
         "id": "k4a",
@@ -84,47 +20,145 @@
         "value": 4
       },
       {
-        "id": "k3a",
+        "id": "k5a",
         "color": "black",
-        "value": 3
+        "value": 5
+      },
+      {
+        "id": "k6a",
+        "color": "black",
+        "value": 6
       }
     ],
     [
       {
-        "id": "b6a",
-        "color": "blue",
+        "id": "y3a",
+        "color": "yellow",
+        "value": 3
+      },
+      {
+        "id": "y4a",
+        "color": "yellow",
+        "value": 4
+      },
+      {
+        "id": "y5a",
+        "color": "yellow",
+        "value": 5
+      },
+      {
+        "id": "y6a",
+        "color": "yellow",
         "value": 6
       },
+      {
+        "id": "y7a",
+        "color": "yellow",
+        "value": 7
+      }
+    ],
+    [
       {
         "id": "b5a",
         "color": "blue",
         "value": 5
       },
       {
-        "id": "b4a",
+        "id": "b6a",
         "color": "blue",
-        "value": 4
+        "value": 6
       },
       {
-        "id": "b3a",
+        "id": "b7a",
         "color": "blue",
-        "value": 3
+        "value": 7
+      },
+      {
+        "id": "b8a",
+        "color": "blue",
+        "value": 8
+      },
+      {
+        "id": "b9a",
+        "color": "blue",
+        "value": 9
+      },
+      {
+        "id": "b10a",
+        "color": "blue",
+        "value": 10
+      }
+    ],
+    [
+      {
+        "id": "r7a",
+        "color": "red",
+        "value": 7
+      },
+      {
+        "id": "r8a",
+        "color": "red",
+        "value": 8
+      },
+      {
+        "id": "r9a",
+        "color": "red",
+        "value": 9
+      },
+      {
+        "id": "r10a",
+        "color": "red",
+        "value": 10
+      },
+      {
+        "id": "r11a",
+        "color": "red",
+        "value": 11
+      }
+    ],
+    [
+      {
+        "id": "y2a",
+        "color": "yellow",
+        "value": 2
       },
       {
         "id": "b2a",
         "color": "blue",
         "value": 2
+      },
+      {
+        "id": "r2a",
+        "color": "red",
+        "value": 2
       }
     ],
     [
       {
-        "id": "y11a",
-        "color": "yellow",
-        "value": 11
+        "id": "k7a",
+        "color": "black",
+        "value": 7
       },
+      {
+        "id": "b7b",
+        "color": "blue",
+        "value": 7
+      },
+      {
+        "id": "r7b",
+        "color": "red",
+        "value": 7
+      }
+    ],
+    [
       {
         "id": "k11a",
         "color": "black",
+        "value": 11
+      },
+      {
+        "id": "y11a",
+        "color": "yellow",
         "value": 11
       },
       {
@@ -135,48 +169,14 @@
     ],
     [
       {
-        "id": "r6a",
-        "color": "red",
-        "value": 6
-      },
-      {
-        "id": "k6b",
+        "id": "k12a",
         "color": "black",
-        "value": 6
+        "value": 12
       },
       {
-        "id": "b6b",
-        "color": "blue",
-        "value": 6
-      }
-    ],
-    [
-      {
-        "id": "r2a",
-        "color": "red",
-        "value": 2
-      },
-      {
-        "id": "y2a",
+        "id": "y12a",
         "color": "yellow",
-        "value": 2
-      },
-      {
-        "id": "k2a",
-        "color": "black",
-        "value": 2
-      }
-    ],
-    [
-      {
-        "id": "r1a",
-        "color": "red",
-        "value": 1
-      },
-      {
-        "id": "y1a",
-        "color": "yellow",
-        "value": 1
+        "value": 12
       },
       {
         "id": "j1",
@@ -186,96 +186,96 @@
   ],
   "rack": [
     {
-      "id": "b1a",
-      "color": "blue",
-      "value": 1
-    },
-    {
-      "id": "y3a",
-      "color": "yellow",
-      "value": 3
-    },
-    {
-      "id": "r3a",
+      "id": "r12a",
       "color": "red",
-      "value": 3
+      "value": 12
+    },
+    {
+      "id": "y10a",
+      "color": "yellow",
+      "value": 10
+    },
+    {
+      "id": "k10a",
+      "color": "black",
+      "value": 10
     }
   ],
   "solution": [
     [
-      "y1a",
-      "r1a",
-      "b1a"
-    ],
-    [
-      "y11a",
+      "k10a",
       "k11a",
-      "b11a"
-    ],
-    [
-      "y2a",
-      "k2a",
-      "r2a"
-    ],
-    [
-      "y3a",
-      "r3a",
-      "b3a"
-    ],
-    [
-      "j1",
-      "b2a",
-      "b6a",
-      "b5a",
-      "b4a"
+      "k12a"
     ],
     [
       "y10a",
-      "y9a",
-      "y8a",
+      "y11a",
+      "y12a"
+    ],
+    [
+      "b2a",
+      "r2a",
+      "y2a"
+    ],
+    [
+      "y3a",
+      "y4a",
+      "y5a"
+    ],
+    [
+      "j1",
+      "y6a",
       "y7a"
     ],
     [
-      "r11a",
-      "r10a",
-      "r9a"
-    ],
-    [
-      "r8a",
-      "r7a",
-      "r6a"
-    ],
-    [
-      "y6a",
-      "k6b",
-      "b6b"
-    ],
-    [
-      "k8a",
-      "k7a",
+      "k2a",
+      "k3a",
+      "k4a",
+      "k5a",
       "k6a"
     ],
     [
-      "k3a",
-      "k5a",
-      "k4a"
+      "b7b",
+      "k7a",
+      "r7b"
+    ],
+    [
+      "r7a",
+      "r8a",
+      "r9a"
+    ],
+    [
+      "r10a",
+      "r11a",
+      "r12a"
+    ],
+    [
+      "b5a",
+      "b6a",
+      "b7a"
+    ],
+    [
+      "b10a",
+      "b11a",
+      "b8a",
+      "b9a"
     ]
   ],
   "visualHints": [
     {
       "type": "split",
-      "afterTileId": "r10a",
+      "afterTileId": "k3a",
       "label": "Try splitting this meld here"
     },
     {
       "type": "highlight",
       "tileIds": [
-        "y1a",
-        "r1a",
-        "b1a",
-        "y3a",
-        "r3a",
-        "b3a"
+        "y12a",
+        "k12a",
+        "r12a",
+        "y10a",
+        "k10a",
+        "r10a"
       ],
       "label": "These tiles matter to the key restructuring"
     },
@@ -283,14 +283,14 @@
       "type": "groups",
       "groups": [
         [
-          "y1a",
-          "r1a",
-          "b1a"
+          "y12a",
+          "k12a",
+          "r12a"
         ],
         [
-          "y3a",
-          "r3a",
-          "b3a"
+          "y10a",
+          "k10a",
+          "r10a"
         ]
       ],
       "label": "Try rebuilding the highlighted tiles into these melds"
@@ -303,23 +303,26 @@
     "allStartMeldsLegal": true,
     "hiddenSolutionLegal": true,
     "exactTileMatch": true,
-    "directRackInsertions": 1
+    "directRackInsertions": 1,
+    "structuralMoves": 25,
+    "groupsTouched": 5,
+    "boardCoverage": 0.625
   },
   "metadata": {
-    "minValue": 1,
-    "maxValue": 11,
+    "minValue": 2,
+    "maxValue": 12,
     "distinctValues": 11,
     "jokerCount": 1,
     "startingSets": 4,
     "startingRuns": 4,
     "template": "verified-1",
-    "reflected": true,
-    "shift": -1,
+    "reflected": false,
+    "shift": 0,
     "colorMap": {
-      "red": "red",
+      "red": "black",
       "blue": "yellow",
-      "black": "black",
-      "yellow": "blue"
+      "black": "blue",
+      "yellow": "red"
     },
     "generatorVersion": 1,
     "seed": "2026-08-27"
