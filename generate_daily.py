@@ -238,7 +238,7 @@ def generate():
     bases=json.loads((Path(__file__).with_name("base_templates.json")).read_text());rng.shuffle(bases)
     chosen=None
     for base in bases:
-      for _ in range(1000):
+      for _ in range(30):
         groups,rack,stored,hints,tr=transform(base,rng)
         if not all(legal(g) for g in groups) or legal(rack) or not exact(groups,rack,stored):continue
         m=meta(groups,rack)
@@ -259,6 +259,13 @@ def generate():
         move_count = solution_move_count(groups, rack, best_solution)
         groups_touched = groups_touched_count(groups, best_solution)
         board_coverage = groups_touched / len(groups)
+
+          print(
+    "CANDIDATE:",
+    "moves =", move_count,
+    "coverage =", round(board_coverage, 2),
+    "groups =", groups_touched, "/", len(groups)
+)
     
         if board_coverage < 0.60:
             continue
