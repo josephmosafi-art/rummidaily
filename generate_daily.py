@@ -244,6 +244,7 @@ def generate():
         m=meta(groups,rack)
         if m["distinctValues"]<7 or m["startingSets"]<2 or m["startingRuns"]<2:continue
         if direct(groups,rack)>=2:continue
+        print("REACHED SOLVER")
         solutions = solve_all([t for g in groups for t in g] + rack)
 
 
