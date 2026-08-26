@@ -238,7 +238,7 @@ def generate():
     bases=json.loads((Path(__file__).with_name("base_templates.json")).read_text());rng.shuffle(bases)
     chosen=None
     for base in bases:
-      for _ in range(30):
+      for _ in range(1000):
         groups,rack,stored,hints,tr=transform(base,rng)
         if not all(legal(g) for g in groups) or legal(rack) or not exact(groups,rack,stored):continue
         m=meta(groups,rack)
