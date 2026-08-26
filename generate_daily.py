@@ -161,7 +161,6 @@ def solution_move_count(start_groups, start_rack, solution):
             moved += 1
 
     return moved
-           return moved
 
 
 def groups_touched_count(start_groups, solution):
