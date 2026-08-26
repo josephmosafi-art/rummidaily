@@ -244,41 +244,42 @@ def generate():
         m=meta(groups,rack)
         if m["distinctValues"]<7 or m["startingSets"]<2 or m["startingRuns"]<2:continue
         if direct(groups,rack)>=2:continue
-       solutions = solve_all([t for g in groups for t in g] + rack)
+            solutions = solve_all([t for g in groups for t in g] + rack)
 
-if not solutions:
-    continue
 
-best_solution = min(
-    solutions,
-    key=lambda solution: solution_move_count(groups, rack, solution)
-)
+    if not solutions:
+        continue
+    
+    best_solution = min(
+        solutions,
+        key=lambda solution: solution_move_count(groups, rack, solution)
+    )
+    
+    move_count = solution_move_count(groups, rack, best_solution)
+    groups_touched = groups_touched_count(groups, best_solution)
+    board_coverage = groups_touched / len(groups)
 
-move_count = solution_move_count(groups, rack, best_solution)
-groups_touched = groups_touched_count(groups, best_solution)
-board_coverage = groups_touched / len(groups)
+    if board_coverage < 0.60:
+        continue
+    if move_count < 12:
+        continue
 
-if board_coverage < 0.60:
-    continue
-if move_count < 12:
-    continue
-
-        chosen={"number":10+(datetime.fromisoformat(date).date()-datetime(2026,8,25).date()).days,
-          "difficulty": (
-    "Expert" if move_count >= 20 else
-    "Hard" if move_count >= 12 else
-    "Medium" if move_count >= 8 else
-    "Easy"
-),"targetMinutes":"~5 (provisional)","groups":groups,"rack":rack,
-          "solution":best_solution,"visualHints":hints,
-          "proof":{"buildVerified":True,"independentSolverFoundSolution":True,"rackOnlyShortcut":False,
-            "allStartMeldsLegal":True,"hiddenSolutionLegal":True,"exactTileMatch":True,
-            "directRackInsertions":direct(groups,rack)},
-                "structuralMoves":move_count,
-                "groupsTouched":groups_touched,
-"boardCoverage":board_coverage,
-          "metadata":{**m,**tr,"generatorVersion":1,"seed":os.environ.get("RUMMIDAILY_SEED",date)}}
-        break
+            chosen={"number":10+(datetime.fromisoformat(date).date()-datetime(2026,8,25).date()).days,
+              "difficulty": (
+        "Expert" if move_count >= 20 else
+        "Hard" if move_count >= 12 else
+        "Medium" if move_count >= 8 else
+        "Easy"
+    ),"targetMinutes":"~5 (provisional)","groups":groups,"rack":rack,
+              "solution":best_solution,"visualHints":hints,
+              "proof":{"buildVerified":True,"independentSolverFoundSolution":True,"rackOnlyShortcut":False,
+                "allStartMeldsLegal":True,"hiddenSolutionLegal":True,"exactTileMatch":True,
+                "directRackInsertions":direct(groups,rack)},
+                    "structuralMoves":move_count,
+                    "groupsTouched":groups_touched,
+    "boardCoverage":board_coverage,
+              "metadata":{**m,**tr,"generatorVersion":1,"seed":os.environ.get("RUMMIDAILY_SEED",date)}}
+            break
       if chosen:break
     if not chosen:raise RuntimeError("No verified transformed puzzle passed the publishing gates.")
     PUZZLES.mkdir(exist_ok=True);p=PUZZLES/f"{date}.json";p.write_text(json.dumps(chosen,indent=2)+"\n")
