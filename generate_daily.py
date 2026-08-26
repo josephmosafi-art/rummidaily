@@ -246,7 +246,7 @@ def generate():
         if direct(groups,rack)>=2:continue
         print("REACHED SOLVER")
         solutions = solve_all([t for g in groups for t in g] + rack)
-
+        print("SOLUTIONS FOUND:", len(solutions), "STORED SIZES:", [len(g) for g in stored])
 
 
         if not solutions:
