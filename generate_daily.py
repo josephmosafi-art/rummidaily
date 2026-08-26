@@ -137,7 +137,7 @@ def solve_all(tiles, limit=80):
 def solve(tiles):
     results = solve_all(tiles, limit=1)
     return results[0] if results else None
-   def solution_move_count(start_groups, start_rack, solution):
+def solution_move_count(start_groups, start_rack, solution):
     start_partners = {}
 
     for group in start_groups:
