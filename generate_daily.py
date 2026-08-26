@@ -261,11 +261,11 @@ def generate():
         board_coverage = groups_touched / len(groups)
 
           print(
-    "CANDIDATE:",
-    "moves =", move_count,
-    "coverage =", round(board_coverage, 2),
-    "groups =", groups_touched, "/", len(groups)
-)
+        "CANDIDATE:",
+        "moves =", move_count,
+        "coverage =", round(board_coverage, 2),
+        "groups =", groups_touched, "/", len(groups)
+    )
     
         if board_coverage < 0.60:
             continue
