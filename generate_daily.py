@@ -244,25 +244,26 @@ def generate():
         m=meta(groups,rack)
         if m["distinctValues"]<7 or m["startingSets"]<2 or m["startingRuns"]<2:continue
         if direct(groups,rack)>=2:continue
-            solutions = solve_all([t for g in groups for t in g] + rack)
+        solutions = solve_all([t for g in groups for t in g] + rack)
 
 
-    if not solutions:
-        continue
+
+        if not solutions:
+            continue
+        
+        best_solution = min(
+            solutions,
+            key=lambda solution: solution_move_count(groups, rack, solution)
+        )
+        
+        move_count = solution_move_count(groups, rack, best_solution)
+        groups_touched = groups_touched_count(groups, best_solution)
+        board_coverage = groups_touched / len(groups)
     
-    best_solution = min(
-        solutions,
-        key=lambda solution: solution_move_count(groups, rack, solution)
-    )
-    
-    move_count = solution_move_count(groups, rack, best_solution)
-    groups_touched = groups_touched_count(groups, best_solution)
-    board_coverage = groups_touched / len(groups)
-
-    if board_coverage < 0.60:
-        continue
-    if move_count < 12:
-        continue
+        if board_coverage < 0.60:
+            continue
+        if move_count < 12:
+            continue
 
             chosen={"number":10+(datetime.fromisoformat(date).date()-datetime(2026,8,25).date()).days,
               "difficulty": (
