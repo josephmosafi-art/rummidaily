@@ -204,43 +204,22 @@
   "solution": [
     [
       "k1a",
-      "r1a",
-      "y1a"
-    ],
-    [
-      "b11a",
-      "k11a",
-      "y11a"
-    ],
-    [
-      "j1",
       "k2a",
       "k3a"
     ],
     [
-      "b2a",
+      "r1a",
       "r2a",
-      "y2a"
+      "r3a"
     ],
     [
-      "b3a",
-      "r3a",
-      "y3a"
-    ],
-    [
-      "y4a",
-      "y5a",
-      "y6a"
-    ],
-    [
-      "k10a",
-      "k7a",
-      "k8a",
-      "k9a"
-    ],
-    [
-      "r10a",
+      "b11a",
       "r11a",
+      "y11a"
+    ],
+    [
+      "j1",
+      "r10a",
       "r9a"
     ],
     [
@@ -249,16 +228,37 @@
       "r8a"
     ],
     [
+      "k10a",
+      "k11a",
+      "k7a",
+      "k8a",
+      "k9a"
+    ],
+    [
       "b6b",
       "k6a",
       "y6b"
     ],
     [
-      "b4a",
-      "b5a",
+      "y4a",
+      "y5a",
+      "y6a"
+    ],
+    [
+      "y1a",
+      "y2a",
+      "y3a"
+    ],
+    [
       "b6a",
       "b7a",
       "b8a"
+    ],
+    [
+      "b2a",
+      "b3a",
+      "b4a",
+      "b5a"
     ]
   ],
   "visualHints": [
@@ -304,9 +304,9 @@
     "hiddenSolutionLegal": true,
     "exactTileMatch": true,
     "directRackInsertions": 1,
-    "structuralMoves": 33,
-    "groupsTouched": 7,
-    "boardCoverage": 0.875
+    "structuralMoves": 25,
+    "groupsTouched": 5,
+    "boardCoverage": 0.625
   },
   "metadata": {
     "minValue": 1,
