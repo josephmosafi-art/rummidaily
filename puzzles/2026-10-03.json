@@ -1,0 +1,330 @@
+{
+  "number": 49,
+  "difficulty": "Expert",
+  "targetMinutes": "~5 (provisional)",
+  "groups": [
+    [
+      {
+        "id": "b2a",
+        "color": "blue",
+        "value": 2
+      },
+      {
+        "id": "b3a",
+        "color": "blue",
+        "value": 3
+      },
+      {
+        "id": "b4a",
+        "color": "blue",
+        "value": 4
+      },
+      {
+        "id": "b5a",
+        "color": "blue",
+        "value": 5
+      },
+      {
+        "id": "b6a",
+        "color": "blue",
+        "value": 6
+      }
+    ],
+    [
+      {
+        "id": "k3a",
+        "color": "black",
+        "value": 3
+      },
+      {
+        "id": "k4a",
+        "color": "black",
+        "value": 4
+      },
+      {
+        "id": "k5a",
+        "color": "black",
+        "value": 5
+      },
+      {
+        "id": "k6a",
+        "color": "black",
+        "value": 6
+      },
+      {
+        "id": "k7a",
+        "color": "black",
+        "value": 7
+      }
+    ],
+    [
+      {
+        "id": "y5a",
+        "color": "yellow",
+        "value": 5
+      },
+      {
+        "id": "y6a",
+        "color": "yellow",
+        "value": 6
+      },
+      {
+        "id": "y7a",
+        "color": "yellow",
+        "value": 7
+      },
+      {
+        "id": "y8a",
+        "color": "yellow",
+        "value": 8
+      },
+      {
+        "id": "y9a",
+        "color": "yellow",
+        "value": 9
+      },
+      {
+        "id": "y10a",
+        "color": "yellow",
+        "value": 10
+      }
+    ],
+    [
+      {
+        "id": "r7a",
+        "color": "red",
+        "value": 7
+      },
+      {
+        "id": "r8a",
+        "color": "red",
+        "value": 8
+      },
+      {
+        "id": "r9a",
+        "color": "red",
+        "value": 9
+      },
+      {
+        "id": "r10a",
+        "color": "red",
+        "value": 10
+      },
+      {
+        "id": "r11a",
+        "color": "red",
+        "value": 11
+      }
+    ],
+    [
+      {
+        "id": "k2a",
+        "color": "black",
+        "value": 2
+      },
+      {
+        "id": "y2a",
+        "color": "yellow",
+        "value": 2
+      },
+      {
+        "id": "r2a",
+        "color": "red",
+        "value": 2
+      }
+    ],
+    [
+      {
+        "id": "b7a",
+        "color": "blue",
+        "value": 7
+      },
+      {
+        "id": "y7b",
+        "color": "yellow",
+        "value": 7
+      },
+      {
+        "id": "r7b",
+        "color": "red",
+        "value": 7
+      }
+    ],
+    [
+      {
+        "id": "b11a",
+        "color": "blue",
+        "value": 11
+      },
+      {
+        "id": "k11a",
+        "color": "black",
+        "value": 11
+      },
+      {
+        "id": "y11a",
+        "color": "yellow",
+        "value": 11
+      }
+    ],
+    [
+      {
+        "id": "b12a",
+        "color": "blue",
+        "value": 12
+      },
+      {
+        "id": "k12a",
+        "color": "black",
+        "value": 12
+      },
+      {
+        "id": "j1",
+        "joker": true
+      }
+    ]
+  ],
+  "rack": [
+    {
+      "id": "r12a",
+      "color": "red",
+      "value": 12
+    },
+    {
+      "id": "k10a",
+      "color": "black",
+      "value": 10
+    },
+    {
+      "id": "b10a",
+      "color": "blue",
+      "value": 10
+    }
+  ],
+  "solution": [
+    [
+      "b10a",
+      "b11a",
+      "b12a"
+    ],
+    [
+      "k10a",
+      "k11a",
+      "k12a"
+    ],
+    [
+      "k2a",
+      "r2a",
+      "y2a"
+    ],
+    [
+      "k3a",
+      "k4a",
+      "k5a"
+    ],
+    [
+      "j1",
+      "k6a",
+      "k7a"
+    ],
+    [
+      "b2a",
+      "b3a",
+      "b4a",
+      "b5a",
+      "b6a"
+    ],
+    [
+      "b7a",
+      "r7b",
+      "y7b"
+    ],
+    [
+      "r7a",
+      "r8a",
+      "r9a"
+    ],
+    [
+      "r10a",
+      "r11a",
+      "r12a"
+    ],
+    [
+      "y5a",
+      "y6a",
+      "y7a"
+    ],
+    [
+      "y10a",
+      "y11a",
+      "y8a",
+      "y9a"
+    ]
+  ],
+  "visualHints": [
+    {
+      "type": "split",
+      "afterTileId": "b3a",
+      "label": "Try splitting this meld here"
+    },
+    {
+      "type": "highlight",
+      "tileIds": [
+        "k12a",
+        "b12a",
+        "r12a",
+        "k10a",
+        "b10a",
+        "r10a"
+      ],
+      "label": "These tiles matter to the key restructuring"
+    },
+    {
+      "type": "groups",
+      "groups": [
+        [
+          "k12a",
+          "b12a",
+          "r12a"
+        ],
+        [
+          "k10a",
+          "b10a",
+          "r10a"
+        ]
+      ],
+      "label": "Try rebuilding the highlighted tiles into these melds"
+    }
+  ],
+  "proof": {
+    "buildVerified": true,
+    "independentSolverFoundSolution": true,
+    "rackOnlyShortcut": false,
+    "allStartMeldsLegal": true,
+    "hiddenSolutionLegal": true,
+    "exactTileMatch": true,
+    "directRackInsertions": 1,
+    "structuralMoves": 25,
+    "groupsTouched": 5,
+    "boardCoverage": 0.625
+  },
+  "metadata": {
+    "minValue": 2,
+    "maxValue": 12,
+    "distinctValues": 11,
+    "jokerCount": 1,
+    "startingSets": 4,
+    "startingRuns": 4,
+    "template": "verified-1",
+    "reflected": false,
+    "shift": 0,
+    "colorMap": {
+      "red": "blue",
+      "blue": "black",
+      "black": "yellow",
+      "yellow": "red"
+    },
+    "generatorVersion": 1,
+    "seed": "2026-10-03"
+  }
+}
